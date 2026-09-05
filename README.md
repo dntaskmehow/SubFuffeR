@@ -1,5 +1,25 @@
 # SubFuffeR
 
+```text
+  ███████╗██╗   ██╗██████╗ ███████╗██╗   ██╗███████╗██████╗
+  ██╔════╝██║   ██║██╔══██╗██╔════╝██║   ██║██╔════╝██╔══██╗
+  ███████╗██║   ██║██████╔╝█████╗  ██║   ██║█████╗  ██████╔╝
+  ╚════██║██║   ██║██╔══██╗██╔══╝  ╚██╗ ██╔╝██╔══╝  ██╔══██╗
+  ███████║╚██████╔╝██████╔╝███████╗ ╚████╔╝ ███████╗██║  ██║
+  ╚══════╝ ╚═════╝ ╚═════╝ ╚══════╝  ╚═══╝  ╚══════╝╚═╝  ╚═╝
+```
+
+> Scope-first reconnaissance for authorized HackerOne bug bounty testing.
+
+| Flow | Control | Output |
+| --- | --- | --- |
+| Target + HackerOne URL | Eligible structured-scope gate | Safe target set |
+| subfinder | Passive discovery | Streaming findings |
+| dnsx | DNS resolution | Resolved hosts |
+| ffuf | Explicit user action | Bounded HTTP results |
+
+Windows GUI and Kali Linux terminal editions are included. Read the full program policy and exclusions before every run.
+
 SubFuffeR is a Go desktop coordinator for explicit, authorized security testing. It accepts an attack target and HackerOne program URL, loads structured scope, and lets the user run subfinder, dnsx, ffuf, or a selected sequence.
 
 The HackerOne connector is a scope reference and enforcement input. It does not grant permission or prove bounty eligibility; read the program policy. Set `HACKERONE_USERNAME` and `HACKERONE_API_TOKEN` for authenticated scope data. Credentials are never written by the app.
