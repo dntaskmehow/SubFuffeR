@@ -1,45 +1,97 @@
-# SubFuffeR
+# SubFuffeR - SUBDOMAIN FUZZING
+## DISCOVERY ENGINE
 
-```text
-  ███████╗██╗   ██╗██████╗ ███████╗██╗   ██╗███████╗██████╗
-  ██╔════╝██║   ██║██╔══██╗██╔════╝██║   ██║██╔════╝██╔══██╗
-  ███████╗██║   ██║██████╔╝█████╗  ██║   ██║█████╗  ██████╔╝
-  ╚════██║██║   ██║██╔══██╗██╔══╝  ╚██╗ ██╔╝██╔══╝  ██╔══██╗
-  ███████║╚██████╔╝██████╔╝███████╗ ╚████╔╝ ███████╗██║  ██║
-  ╚══════╝ ╚═════╝ ╚═════╝ ╚══════╝  ╚═══╝  ╚══════╝╚═╝  ╚═╝
-```
+> Researcher: dontaskmehow
 
-> Scope-first reconnaissance for authorized HackerOne bug bounty testing.
+> Recon | Enumeration | Target Discovery
 
-| Flow | Control | Output |
-| --- | --- | --- |
-| Target + HackerOne URL | Eligible structured-scope gate | Safe target set |
-| subfinder | Passive discovery | Streaming findings |
-| dnsx | DNS resolution | Resolved hosts |
-| ffuf | Explicit user action | Bounded HTTP results |
+[![Status](https://img.shields.io/badge/Status-Active-red)](https://github.com/dntaskmehow/SubFuffeR)
+[![Language](https://img.shields.io/badge/Language-Go%20%2B%20Shell%20%2B%20PowerShell-blue)](https://github.com/dntaskmehow/SubFuffeR)
+[![Focus](https://img.shields.io/badge/Focus-Subdomain_Enumeration-orange)](https://github.com/dntaskmehow/SubFuffeR)
 
-Windows GUI and Kali Linux terminal editions are included. Read the full program policy and exclusions before every run.
+`SubFuffeR` is a modular reconnaissance framework focused on subdomain discovery, enumeration, and targeted host mapping across large attack surfaces.
 
-SubFuffeR is a Go desktop coordinator for explicit, authorized security testing. It accepts an attack target and HackerOne program URL, loads structured scope, and lets the user run subfinder, dnsx, ffuf, or a selected sequence.
+Built primarily in Go, with supporting Shell and PowerShell integrations, this project is designed to automate the collection of subdomains, validate reachable hosts, and surface actionable infrastructure data for attack surface analysis.
 
-The HackerOne connector is a scope reference and enforcement input. It does not grant permission or prove bounty eligibility; read the program policy. Set `HACKERONE_USERNAME` and `HACKERONE_API_TOKEN` for authenticated scope data. Credentials are never written by the app.
+----------------------------------------
 
-## Build
+## / THREAT OVERVIEW /
 
-From this directory with Go 1.26+, GCC/MSYS2, and Fyne dependencies available:
+This framework is engineered to:
 
-```powershell
-go mod tidy
-$env:CGO_ENABLED='1'
-go build -ldflags='-H=windowsgui' -o SubFuffeR.exe .
-```
+- enumerate subdomains across target environments
+- brute-force naming patterns and discovery vectors
+- validate live hosts through resolution and reachability checks
+- assist in recon workflows for broad external visibility
+- generate structured outputs for downstream targeting and analysis
 
-Place pinned, user obtained `subfinder.exe`, `dnsx.exe`, and `ffuf.exe` in `tools\`, or put them on `PATH`. The app does not download or embed them. Fyne uses CGO and OpenGL/graphics drivers. No WebView2 runtime is required.
+### Capability profile
 
-Tool invocations use `exec.CommandContext` argument arrays and support cancellation. ffuf is explicit and bounded by the UI thread and rate controls. There is no startup task, persistence, firewall change, privilege escalation, or shell command concatenation. Do not point development builds at live targets.
+- Primary Language: Go
+- Supporting Interfaces: Shell / PowerShell
+- Focus: Subdomain Enumeration
+- Output Model: Structured discovery data
+- Use Case: Reconnaissance / external surface mapping
 
-## Third party notices
+----------------------------------------
 
-The UI uses Fyne v2.6.3 under its upstream license. The separate tools retain their upstream licenses and notices: projectdiscovery/subfinder, projectdiscovery/dnsx, and ffuf/ffuf. Include license files with `tools\` when distributing them.
+## / CORE COMPONENTS /
 
-HackerOne structured scopes documentation: https://api.hackerone.com/hacker-resources/
+### 1. Go Engine
+`SubFuffeR`
+
+The main discovery engine built for performance, automation, and expansion across varied enumeration workflows.
+
+### 2. Shell Integration
+`shell helpers`
+
+Command-line workflow support for rapid execution and automation in Linux-based environments.
+
+### 3. PowerShell Integration
+`powershell helpers`
+
+Windows-compatible operational support for environments where PowerShell is the preferred execution layer.
+
+----------------------------------------
+
+## / FEATURE MATRIX /
+
+### Subdomain Discovery
+Rapid enumeration of hostnames and subdomains associated with a target scope.
+
+### Fuzzing & Pattern Expansion
+Targeted discovery through common naming conventions and wildcard-style enumeration.
+
+### Host Validation
+Resolution and validation of discovered names to identify live infrastructure.
+
+### Operational Flexibility
+Multi-environment support with Go-based execution and lightweight helper scripts.
+
+### Output Readiness
+Structured output suitable for further recon, pivoting, or analyst review.
+
+----------------------------------------
+
+## / OPERATIONAL FLOW /
+
+1. Define target scope
+2. Load wordlist / naming patterns
+3. Enumerate candidate subdomains
+4. Validate responses and live hosts
+5. Collect infrastructure metadata
+6. Feed results into downstream recon workflows
+
+----------------------------------------
+
+## / DISCLAIMER /
+
+This project is presented for authorized security research, defense analysis, and controlled penetration testing in environments where such activity is permitted.
+
+----------------------------------------
+
+## / STATUS /
+
+`SubFuffeR` is a focused subdomain discovery framework designed for reconnaissance, enumeration, and external attack-surface mapping.
+
+`-- DISCOVERY // ACTIVE --`
