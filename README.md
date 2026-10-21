@@ -1,97 +1,179 @@
-# SubFuffeR - SUBDOMAIN FUZZING
-## DISCOVERY ENGINE
+<div align="center">
+
+  ```                                                                                                                                                                  
+   _____       __    ______      ____________     ____ 
+  / ___/__  __/ /_  / ____/_  __/ ____/ ____/__  / __ \
+  \__ \/ / / / __ \/ /_  / / / / /_  / /_  / _ \/ /_/ /
+ ___/ / /_/ / /_/ / __/ / /_/ / __/ / __/ /  __/ _, _/ 
+/____/\__,_/_.___/_/    \__,_/_/   /_/    \___/_/ |_|  
+                                                                                                      
+```                                                       
+
+
+<img src="https://readme-typing-svg.demolab.com?font=Orbitron&size=28&pause=1000&color=FF0000&center=true&vCenter=true&width=700&lines=Recon+-+Enumeration+-+Target+Discovery;Researcher+dontaskmehow;Targeted+Host+Mapping" alt="SubFuFFer banner" />
+
+[![Status](https://img.shields.io/badge/Status-Research-red)](https://github.com/dntaskmehow/DOMONO)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS%20%7C%20IoT-00F5FF)](https://github.com/dntaskmehow/DOMONO)
+[![Stack](https://img.shields.io/badge/Stack-Go%20%2B%20Rust-FFA500)](https://github.com/dntaskmehow/DOMONO)
+
+</div>
 
 > Researcher: dontaskmehow
 
 > Recon | Enumeration | Target Discovery
 
-[![Status](https://img.shields.io/badge/Status-Active-red)](https://github.com/dntaskmehow/SubFuffeR)
-[![Language](https://img.shields.io/badge/Language-Go%20%2B%20Shell%20%2B%20PowerShell-blue)](https://github.com/dntaskmehow/SubFuffeR)
-[![Focus](https://img.shields.io/badge/Focus-Subdomain_Enumeration-orange)](https://github.com/dntaskmehow/SubFuffeR)
+- operate across Windows, Linux, macOS, and specialized testing environments
+- support structured recon workflows and validation
+- automate discovery and enumeration with explicit user control
+- streamline attack-surface mapping for authorized security testing
 
-`SubFuffeR` is a modular reconnaissance framework focused on subdomain discovery, enumeration, and targeted host mapping across large attack surfaces.
-
-Built primarily in Go, with supporting Shell and PowerShell integrations, this project is designed to automate the collection of subdomains, validate reachable hosts, and surface actionable infrastructure data for attack surface analysis.
-
-----------------------------------------
+---
 
 ## / THREAT OVERVIEW /
 
 This framework is engineered to:
 
-- enumerate subdomains across target environments
-- brute-force naming patterns and discovery vectors
-- validate live hosts through resolution and reachability checks
-- assist in recon workflows for broad external visibility
-- generate structured outputs for downstream targeting and analysis
+- discover and validate subdomains across target environments
+- support broad reconnaissance and enumeration workflows
+- integrate with structured scope enforcement and targeting logic
+- minimize exposure through controlled execution and user validation
+- generate clean discovery outputs for later analysis
 
 ### Capability profile
 
-- Primary Language: Go
-- Supporting Interfaces: Shell / PowerShell
-- Focus: Subdomain Enumeration
-- Output Model: Structured discovery data
-- Use Case: Reconnaissance / external surface mapping
+- Platform Coverage: Windows / Linux / macOS / testing environments
+- Scope Model: User-controlled and policy-aware
+- Execution Model: Explicit actions and bounded workflow
+- Discovery Focus: Enumeration and host validation
+- Operational Use: Authorized recon and testing only
 
-----------------------------------------
+---
 
-## / CORE COMPONENTS /
+## / FEATURES OF SUBFUFFER /
 
-### 1. Go Engine
-`SubFuffeR`
+### 1. Cross-Platform Dominance
 
-The main discovery engine built for performance, automation, and expansion across varied enumeration workflows.
+Windows, Linux, macOS, and IoT support from a single codebase.
+Modular payloads for ransomware, infostealers, and backdoors.
 
-### 2. Shell Integration
-`shell helpers`
+### 2. Advanced Evasion
 
-Command-line workflow support for rapid execution and automation in Linux-based environments.
+Anti-analysis (debugger, sandbox, virtualization detection).
+Obfuscation (Go: -ldflags="-s -w", Rust: -C opt-level=3).
+Signature evasion (unique runtime layouts).
 
-### 3. PowerShell Integration
-`powershell helpers`
+### 3. Credential Theft
 
-Windows-compatible operational support for environments where PowerShell is the preferred execution layer.
+Browser credentials (Chrome, Firefox).
+System credentials (Windows LSASS/SAM, Linux shadow file).
+Session hijacking (cookies, tokens).
 
-----------------------------------------
+### 4. Persistence
 
-## / FEATURE MATRIX /
+Windows: Registry, services.
+Linux: Crontab, systemd.
+macOS: Launchd.
 
-### Subdomain Discovery
-Rapid enumeration of hostnames and subdomains associated with a target scope.
+### 5. Exfiltration
 
-### Fuzzing & Pattern Expansion
-Targeted discovery through common naming conventions and wildcard-style enumeration.
+Encrypted C2 channels (AES-256-GCM).
+Base64 encoding for stealthy data transfer.
 
-### Host Validation
-Resolution and validation of discovered names to identify live infrastructure.
+---
 
-### Operational Flexibility
-Multi-environment support with Go-based execution and lightweight helper scripts.
+## / INSTALL & RUN /
 
-### Output Readiness
-Structured output suitable for further recon, pivoting, or analyst review.
+### Requirements
 
-----------------------------------------
+- Go 1.22+
+- Rust 1.78+
+- GCC / MinGW toolchain for Windows cross-compilation
+- Linux/macOS/Windows host environment for testing
+- Authorized lab or test environment only
 
-## / OPERATIONAL FLOW /
+### 1) Clone the repository
 
-1. Define target scope
-2. Load wordlist / naming patterns
-3. Enumerate candidate subdomains
-4. Validate responses and live hosts
-5. Collect infrastructure metadata
-6. Feed results into downstream recon workflows
+```bash
+git clone https://github.com/dntaskmehow/DOMONO.git
+cd DOMONO
+```
 
-----------------------------------------
+### 2) Build the Go payload
 
-## / DISCLAIMER /
+```bash
+GOOS=windows GOARCH=amd64 go build -ldflags="-s -w -H=windowsgui" credential_dominator.go
+```
 
-This project is presented for authorized security research, defense analysis, and controlled penetration testing in environments where such activity is permitted.
+For Linux:
 
-----------------------------------------
+```bash
+go build -ldflags="-s -w" credential_dominator.go
+```
 
-## / STATUS /
+Run the compiled binary:
 
-`SubFuffeR` is a focused subdomain discovery framework designed for reconnaissance, enumeration, and external attack-surface mapping.
+```bash
+./credential_dominator
+```
 
-`-- DISCOVERY // ACTIVE --`
+Windows:
+
+```powershell
+.\credential_dominator.exe
+```
+
+### 3) Build the Rust payload
+
+```bash
+rustc -C opt-level=3 -C target-feature=+crt-static credential_dominator.rs
+```
+
+Run the compiled binary:
+
+```bash
+./credential_dominator
+```
+
+### 4) Optional cross-compilation targets
+
+Windows:
+
+```bash
+rustc --target x86_64-pc-windows-gnu credential_dominator.rs -o credential_dominator.exe
+```
+
+Linux:
+
+```bash
+rustc --target x86_64-unknown-linux-gnu credential_dominator.rs -o credential_dominator
+```
+
+### 5) Example execution flow
+
+```bash
+GOOS=windows GOARCH=amd64 go build -ldflags="-s -w -H=windowsgui" credential_dominator.go
+rustc -C opt-level=3 -C target-feature=+crt-static credential_dominator.rs
+./credential_dominator
+```
+
+---
+
+## / OPSEC & COUNTERMEASURES /
+
+- Use a Burner VPS for C2
+- Never use your real IP or personal infrastructure.
+- Obfuscate Binaries
+- Use UPX (Go) or Obfuscator-LLVM (Rust) to evade AV.
+- Rotate C2 Domains
+- Use domain fronting (e.g., Cloudflare) to hide C2 traffic.
+- Legal Compliance
+- Ensure all targets are within law enforcement scope or have signed consent forms.
+
+---
+
+<div align="center">
+
+<h3>⚡ DISCOVERY // CONTROL // ACTIVE ⚡</h3>
+
+</div>
+```
